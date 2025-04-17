@@ -1,0 +1,50 @@
+{
+  "compilerOptions": {
+    /* Build Options */
+    "target": "ES2022",                   // Compile vers une version moderne de JS
+    "module": "NodeNext",                // Utilise le système de module moderne de Node
+    "outDir": "./build",                 // Répertoire de sortie pour le JS compilé
+    "rootDir": "./src",                  // Répertoire racine du code source TS
+
+    /* JavaScript Support */
+    "allowJs": true,                     // Permet d'importer des fichiers JS (si besoin)
+    "checkJs": true,                     // Vérifie aussi les fichiers JS (si 'allowJs' est true)
+
+    /* Emit Options */
+    "sourceMap": true,                   // Génère des source maps pour le débogage
+    // "declaration": true,              // Décommenter si tu veux générer les fichiers .d.ts (types)
+    // "declarationMap": true,           // Génère les source maps pour les fichiers .d.ts
+
+    /* Interop Constraints */
+    "esModuleInterop": true,             // Facilite l'interopérabilité entre CJS et ESM
+    "forceConsistentCasingInFileNames": true, // Assure une casse cohérente des noms de fichiers
+
+    /* Type Checking */
+    "strict": true,                      // Active toutes les vérifications strictes de types
+    "noImplicitAny": true,               // Erreur si 'any' est implicite
+    "strictNullChecks": true,            // Vérifie les 'null' et 'undefined'
+    "strictFunctionTypes": true,         // Vérifie les types des fonctions de manière plus stricte
+    "strictPropertyInitialization": true,// Vérifie que les propriétés de classe sont initialisées
+    "noImplicitThis": true,              // Erreur sur les 'this' avec type 'any'
+    "useUnknownInCatchVariables": true,  // Utilise 'unknown' au lieu de 'any' dans les blocs catch
+    "alwaysStrict": true,                // Assure 'use strict' dans le JS généré
+    "noUnusedLocals": true,              // Erreur si des variables locales ne sont pas utilisées
+    "noUnusedParameters": true,          // Erreur si des paramètres de fonction ne sont pas utilisés
+    "exactOptionalPropertyTypes": true,  // Traite les propriétés optionnelles de manière plus stricte
+    "noImplicitReturns": true,           // Erreur si une fonction n'a pas de return sur tous les chemins
+    "noFallthroughCasesInSwitch": true,  // Erreur sur les 'fallthrough' dans les switch
+    "noUncheckedIndexedAccess": true,    // Ajoute 'undefined' aux types indexés
+    // "noPropertyAccessFromIndexSignature": true, // Force l'accès indexé ([]) pour les types avec signature d'index
+
+    /* Module Resolution */
+    "moduleResolution": "NodeNext",      // Stratégie de résolution des modules pour Node moderne
+    // "baseUrl": "./",                  // Utile si tu utilises des alias de chemins
+    // "paths": {},                      // Configuration des alias de chemins
+    "resolveJsonModule": true,           // Permet d'importer des fichiers JSON
+
+    /* Completeness */
+    "skipLibCheck": true                 // Ne vérifie pas les types des bibliothèques (accélère la compil)
+  },
+  "include": ["src/**/*"],               // Inclut tous les fichiers dans le dossier src
+  "exclude": ["node_modules", "build"]   // Exclut les dépendances et le dossier de build
+}

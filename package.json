@@ -1,0 +1,39 @@
+{
+  "name": "woocommerce-mcp-server",
+  "version": "1.0.0",
+  "description": "MCP server for WooCommerce integration, designed for stdin/stdout communication.",
+  "type": "module",
+  "main": "build/index.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "node build/index.js",
+    "dev": "tsc --watch & node --watch build/index.js"
+  },
+  "dependencies": {
+    "axios": "^1.7.9"
+  },
+  "devDependencies": {
+    "@types/node": "^20.17.10",
+    "typescript": "^5.7.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thoy-le-duc/woocommerce-mcp-server.git"
+  },
+  "keywords": [
+    "woocommerce",
+    "mcp",
+    "n8n",
+    "api",
+    "json-rpc",
+    "server",
+    "automation"
+  ],
+  "author": "thoy-le-duc",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/thoy-le-duc/woocommerce-mcp-server/issues"
+  },
+  "homepage": "https://github.com/thoy-le-duc/woocommerce-mcp-server#readme"
+}
+
