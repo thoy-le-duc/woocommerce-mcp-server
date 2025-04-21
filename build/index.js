@@ -84,7 +84,7 @@ rl.on('line', async (line) => {
         // Si la méthode reçue est 'initialize', on renvoie directement les métadonnées du serveur
         if (request.method === 'initialize') {
             const initResult = {
-                protocolVersion: '1.0.0',
+                protocolVersion: '1.0.1',
                 capabilities: {
                     tools: {}, // ← racine demandée par n8n
                 },
