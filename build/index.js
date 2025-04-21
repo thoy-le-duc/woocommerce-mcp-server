@@ -84,11 +84,15 @@ rl.on('line', async (line) => {
         // Si la méthode reçue est 'initialize', on renvoie directement les métadonnées du serveur
         if (request.method === 'initialize') {
             const initResult = {
-                name: 'woocommerce-mcp-server',
-                version: '0.1.0',
-                description: 'WooCommerce MCP server',
-                capabilities: {
-                    tools: {} // <-- remplis ici si tu exposes déjà des outils
+                // MCP 0.1 — deux champs obligatoires
+                protocolVersion: '0.1.0',
+                serverInfo: {
+                    name: 'woocommerce-mcp-server',
+                    version: '0.1.0',
+                    description: 'WooCommerce MCP server',
+                    capabilities: {
+                        tools: {}, // tu ajouteras tes outils ici
+                    },
                 },
             };
             sendResponse({
@@ -96,7 +100,7 @@ rl.on('line', async (line) => {
                 id: request.id,
                 result: initResult,
             });
-            return; // On ne poursuit pas le traitement générique pour cette requête
+            return;
         }
         // 3. Appelle le handler principal avec la méthode et les paramètres
         // Les paramètres peuvent être absents, on passe un objet vide si c'est le cas.
