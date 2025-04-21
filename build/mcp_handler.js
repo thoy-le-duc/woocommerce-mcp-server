@@ -124,6 +124,11 @@ export async function handleMcpRequest(method, params = {}) {
         }
         // --- 4. Execute Request based on Method ---
         switch (method) {
+            // === MCP handshake helper ===
+            case 'tools.list':
+                // For now we expose no tools, so return an empty array.
+                // n8n only cares that the method exists and returns JSON.
+                return [];
             // === WordPress Posts ===
             case 'create_post':
                 if (!params.title || !params.content) {

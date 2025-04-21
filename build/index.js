@@ -80,6 +80,24 @@ rl.on('line', async (line) => {
             sendResponse(createJsonRpcError(null, -32600, 'Invalid Request', 'Received data is not a valid JSON-RPC 2.0 request object.'));
             return; // Stoppe le traitement de cette ligne
         }
+        // --- MCP handshake ---
+        // Si la méthode reçue est 'initialize', on renvoie directement les métadonnées du serveur
+        if (request.method === 'initialize') {
+            const initResult = {
+                name: 'woocommerce-mcp-server',
+                version: '0.1.0',
+                description: 'WooCommerce MCP server',
+                capabilities: {
+                    tools: {} // <-- remplis ici si tu exposes déjà des outils
+                },
+            };
+            sendResponse({
+                jsonrpc: '2.0',
+                id: request.id,
+                result: initResult,
+            });
+            return; // On ne poursuit pas le traitement générique pour cette requête
+        }
         // 3. Appelle le handler principal avec la méthode et les paramètres
         // Les paramètres peuvent être absents, on passe un objet vide si c'est le cas.
         const result = await handleMcpRequest(request.method, request.params || {});
