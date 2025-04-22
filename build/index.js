@@ -43,6 +43,7 @@ rl.on('line', async (line) => {
     }
     catch (err) {
         const errorMessage = err instanceof Error ? err.message : String(err);
+        console.error(`MCP handler error (method=${method}, id=${id}):`, err);
         process.stdout.write(JSON.stringify({
             jsonrpc: '2.0',
             id,
