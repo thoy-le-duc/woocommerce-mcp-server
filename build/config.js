@@ -6,7 +6,8 @@
 function loadDefaultCredentials() {
     // process.env contient les variables d'environnement.
     // L'opérateur '||' assigne '' si la variable n'est pas définie ou vide.
-    const siteUrl = process.env.WORDPRESS_SITE_URL || '';
+    // Try both SITE_URL and WORDPRESS_SITE_URL for compatibility
+    const siteUrl = process.env.SITE_URL || process.env.WORDPRESS_SITE_URL || '';
     const username = process.env.WORDPRESS_USERNAME || '';
     const password = process.env.WORDPRESS_PASSWORD || '';
     const consumerKey = process.env.WOOCOMMERCE_CONSUMER_KEY || '';
