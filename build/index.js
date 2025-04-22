@@ -7,6 +7,7 @@ const rl = readline.createInterface({
     output: process.stdout,
     terminal: false,
 });
+console.error('WooCommerce MCP server started. Listening on stdin...');
 rl.on('line', async (line) => {
     let request;
     try {
@@ -17,17 +18,14 @@ rl.on('line', async (line) => {
         return;
     }
     const { id = null, method, params = {} } = request;
-    const requestedProtocolVersion = typeof params.protocolVersion === 'string'
-        ? params.protocolVersion
-        : '1.0.0';
     try {
         if (method === 'initialize') {
             const initResult = {
-                protocolVersion: requestedProtocolVersion,
+                protocolVersion: '2024-11-05',
                 capabilities: { tools: {} },
                 serverInfo: {
                     name: 'woocommerce-mcp-server',
-                    version: '1.0.0',
+                    version: '2024-11-05',
                     description: 'WooCommerce MCP server',
                 },
             };
