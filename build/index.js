@@ -17,10 +17,13 @@ rl.on('line', async (line) => {
         return;
     }
     const { id = null, method, params = {} } = request;
+    const requestedProtocolVersion = typeof params.protocolVersion === 'string'
+        ? params.protocolVersion
+        : '1.0.0';
     try {
         if (method === 'initialize') {
             const initResult = {
-                protocolVersion: '1.0.0',
+                protocolVersion: requestedProtocolVersion,
                 capabilities: { tools: {} },
                 serverInfo: {
                     name: 'woocommerce-mcp-server',
