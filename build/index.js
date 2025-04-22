@@ -84,13 +84,13 @@ rl.on('line', async (line) => {
         // Si la méthode reçue est 'initialize', on renvoie directement les métadonnées du serveur
         if (request.method === 'initialize') {
             const initResult = {
-                protocolVersion: '1.0.0', // exactly the version supported by n8n-nodes-mcp v1
+                protocolVersion: '2025-03-26', // exactly the version supported by n8n-nodes-mcp v1
                 capabilities: {
                     tools: {}, // still an empty set of tools
                 },
                 serverInfo: {
                     name: 'woocommerce-mcp-server',
-                    version: '1.0.0',
+                    version: '2025-03-26',
                     description: 'WooCommerce MCP server',
                 },
             };
